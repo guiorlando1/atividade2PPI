@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 
 const porta = 3000;
 const host = '0.0.0.0';
@@ -9,7 +10,7 @@ const listarUsuario = [];
 
 // Definindo as funcionalidades do servidor acessíveis por URLs
 // Declarar para a nossa aplicação express onde está a fonte dos arquivos estáticos
-app.use(express.static('./publico'));
+app.use(express.static(path.join(process.cwd(),'publico')));
 
 app.get('/cadastrarUsuario', (req, resp) => {
   // Extraindo os dados do usuário pela requisição do HTML
